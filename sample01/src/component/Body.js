@@ -4,7 +4,13 @@ import "./Body.css"
 
 /* 동작:  props = {name:"홍길동", location:"부산"} */
 // function Body(props) { 
-function Body(  { name, location, favorList }  ) { 
+// function Body(  { name, location, favorList }  ) { 
+
+// ChildCom컴포넌트는 children프로퍼티로 전달
+function Body( { name, location, favorList, children } ){
+  console.log("children:", children)
+
+
   // console.log(props)
   /* 구조 분해 할당: {변수1, 변수2}= {객체:속성1, 객체:속성2} */
   // const { name, location } = props;
@@ -15,17 +21,13 @@ function Body(  { name, location, favorList }  ) {
       {/* <h1 className="content">이름: { props.name }, 거주지: {props.location}</h1> */}
       <h1 className="content">이름: {name}, 거주지: {location}</h1>
       <br />
-      
-      {/* <div>
-      {
-        favorList.map( (data)=> {
-          return <span>{data}</span>
-        })
-      }
-      </div> */}
-      <br />
+     
       {favorList.length} 개의 음식을 좋아합니다.
-
+      <br />
+     
+      <h3>ChildCom컴포넌트는 children프로퍼티로 전달</h3>
+      <div>{children}</div>
+    
     </div>
   );
 
