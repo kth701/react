@@ -24,11 +24,18 @@ function BodyState() {
   //   console.log('1씩 증가')
   //  }
 
+
+  // input 요소 변경시 
   const [text, setText] = useState("")
   const inputOnChange = (e) => {
     setText(e.target.value) /* text = e.target.value */
     
     //console.log(e.target.value)
+  }
+
+  // 날짜 변경시
+  const dateOnChange = () =>{
+    console.log('date change...')
   }
 
   return(
@@ -40,8 +47,10 @@ function BodyState() {
       <button onClick={onIncrease}>1씩 증가</button>
 
       <hr />
-      <input onChange={inputOnChange} />
+      <input type="text" onChange={inputOnChange} value="" />
       <div>{text}</div>
+      <hr />
+      <input type="date" value="" onChange={dateOnChange} />
     </div>
   )
 }
