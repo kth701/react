@@ -57,27 +57,30 @@ function BodyState() {
 
   return(
     <div>
-      <h2>이름: {name}</h2>
-      <hr/>
-      <h1>useState로 관리하는 count변수</h1>
-      <h2>{count}</h2>
-      <button onClick={onIncrease}>1씩 증가</button>
+      <div>
+        <h2>이름: {name}</h2>
+        <hr/>
+        <h1>useState로 관리하는 count변수</h1>
+        <h2>{count}</h2>
+        <button onClick={onIncrease}>1씩 증가</button>
 
-      <hr />
-      <input type="text" onChange={inputOnChange} value="" />
-      <div>{text}</div>
-      <hr />
-      <input type="date" value={date} onChange={dateOnChange} />
+        <hr />
+        <input type="text" onChange={inputOnChange} value="" />
+        <div>{text}</div>
+        <hr />
+        <input type="date" value={date} onChange={dateOnChange} />
 
-      <hr />
-      <select value={option} onChange={selectOnChange} >
-        <option key="1번">1번</option>
-        <option key="2번">2번</option>
-        <option key="3번">3번</option>
-      </select>
+        <hr />
+        <select value={option} onChange={selectOnChange} >
+          <option key="1번">1번</option>
+          <option key="2번">2번</option>
+          <option key="3번">3번</option>
+        </select>
 
-      <hr />
-      <textarea value={text2} onChange={textareaOnChange}></textarea>0
+        <hr />
+        <textarea value={text2} onChange={textareaOnChange}></textarea>
+      </div>
+
     </div>
   )
 }

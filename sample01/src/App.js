@@ -5,6 +5,7 @@ import Footer from './component/Footer.js'
 
 import BodyEvent from './component/BodyEvent.js'  
 import BodyState from './component/BodyState.js'  
+import BodyState2 from  './component/BodyState2.js'  
 
 
 
@@ -29,14 +30,17 @@ function App() {
       {/* <Body {...BodyProp} /> */}
 
       {/* Pros로 컴포넌트 전달 */}
-      <Body  {...BodyProp} > 
+      {/* <Body  {...BodyProp} > 
         <ChildComp />
-      </Body>
+      </Body> */}
 
       <hr />
       {/* <BodyEvent /> */}
       <hr />
-      <BodyState />
+      {/* <BodyState /> */}
+
+      <hr />
+      <BodyState2 />
 
       <Footer />
     </div>
