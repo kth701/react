@@ -6,6 +6,7 @@ State 상태 관리
 
 useState이 이용 생성
 const [상태변수, set함수] = useState(초기값)
+const [getter, setter] = useState(초기값)
 
 */
 
@@ -34,8 +35,24 @@ function BodyState() {
   }
 
   // 날짜 변경시
-  const dateOnChange = () =>{
-    console.log('date change...')
+  const [date, setDate] = useState("")
+  const dateOnChange = (e) =>{
+    setDate(e.target.value)
+    //console.log(e.target.value)
+  }
+
+  // select 선택 변경시
+  const [option, setOption] = useState("")
+  const selectOnChange = (e) => {
+    setOption(e.target.value)
+    console.log(e.target.value)
+  }
+
+  // textarea 
+  const [text2, setText2] = useState("")
+  const textareaOnChange = (e) => {
+    setText2(e.target.value)
+    console.log(e.target.value)
   }
 
   return(
@@ -50,7 +67,17 @@ function BodyState() {
       <input type="text" onChange={inputOnChange} value="" />
       <div>{text}</div>
       <hr />
-      <input type="date" value="" onChange={dateOnChange} />
+      <input type="date" value={date} onChange={dateOnChange} />
+
+      <hr />
+      <select value={option} onChange={selectOnChange} >
+        <option key="1번">1번</option>
+        <option key="2번">2번</option>
+        <option key="3번">3번</option>
+      </select>
+
+      <hr />
+      <textarea value={text2} onChange={textareaOnChange}></textarea>0
     </div>
   )
 }
