@@ -4,6 +4,7 @@ import Body from './component/Body.js'
 import Footer from './component/Footer.js'  
 
 import BodyEvent from './component/BodyEvent.js'  
+import BodyState from './component/BodyState.js'  
 
 
 
@@ -33,7 +34,9 @@ function App() {
       </Body>
 
       <hr />
-      <BodyEvent />
+      {/* <BodyEvent /> */}
+      <hr />
+      <BodyState />
 
       <Footer />
     </div>
