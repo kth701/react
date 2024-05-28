@@ -6,6 +6,8 @@ import Footer from './component/Footer.js'
 import BodyEvent from './component/BodyEvent.js'  
 import BodyState from './component/BodyState.js'  
 import BodyState2 from  './component/BodyState2.js'  
+import BodyStateProp from  './component/BodyStateProp.js'  
+import BodyRef from  './component/BodyRef.js'
 
 
 
@@ -40,8 +42,13 @@ function App() {
       {/* <BodyState /> */}
 
       <hr />
-      <BodyState2 />
+      {/* <BodyState2 /> */}
 
+      <hr />
+      <BodyStateProp />
+      
+      <hr />
+      <BodyRef />
       <Footer />
     </div>
   );

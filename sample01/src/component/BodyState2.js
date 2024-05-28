@@ -49,10 +49,19 @@ function BodyState2()  {
 
   const hanleOnChange = (e) =>{
     // 상태 객체에 값을 수정하는 메서드
-    setState({
-      ...state,
-      [e.target.name]: e.target.value // ['name']: e.target.value
+
+    // setState({
+    //   ...state,
+    //   [e.target.name]: e.target.value // ['name']: e.target.value
+    // })
+    
+    setState( (s) =>{
+        return {
+          ...state,
+          [e.target.name]: e.target.value // ['name']: e.target.value
+        }
     })
+
     // 상태변수값이 변경된 후 출력
     //console.log(state)
 
