@@ -14,8 +14,9 @@ import {useState} from "react";
 
 
 function BodyState() {
+  // 상수
    const name = "길순이" /* 변하지않는 상태 */
-   
+     
    const [count, setCount] = useState(0)
 
    const onIncrease = () => {
