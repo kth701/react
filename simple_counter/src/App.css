@@ -4,7 +4,7 @@ body {
 
 .App {
   text-align: center;
-  width: 500px;
+  width: 70%;
   margin: 0 auto;
 
   border: 0px solid gray;
@@ -20,7 +20,9 @@ body {
 .App .controller {
   padding: 10px;
 }
-
+.controller > button {
+  margin-left: 3px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

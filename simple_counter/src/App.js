@@ -1,4 +1,6 @@
 
+import 'bootstrap/dist/css/bootstrap.css'
+
 import './App.css';
 import Viewer from './component/Viewer'
 import Controller from './component/Controller'
@@ -16,15 +18,17 @@ function App() {
 
   return (
     <div className="App">
-      <div className="title">
-        <h1>Simple Counter</h1>
+      <div className="container">
+        <div className="alert alert-light">
+          <h1>Simple Counter</h1>
+        </div>
+        <section>
+          <Viewer count={count}/>
+        </section>
+        <section>
+          <Controller  handleSetCount={handleSetCount}/>
+        </section>
       </div>
-      <section>
-        <Viewer count={count}/>
-      </section>
-      <section>
-        <Controller  handleSetCount={handleSetCount}/>
-      </section>
     </div>
   );
 }
