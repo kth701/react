@@ -4,8 +4,16 @@
   margin-top: 25px;
 
   display: flex; /* row : 수평 방향 */
-  gap: 10px;
+  gap: 5px;
 }
+.edit_wrapper  .Edit{
+  flex: 9;
+} 
+.edit_wrapper  .Add{
+  flex: 1;
+} 
+
+
 
 .TodoEditor input:focus {
   outline:none !important;

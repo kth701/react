@@ -7,9 +7,9 @@ const TodoEditor = () => {
       <h5>새로운 Todo 작성하기 🖍</h5>
 
       <div className="edit_wrapper">
-        <input className="form-control border-success"
+        <input className="Edit form-control border-success"
                 placeholder="새로운 Todo...." />
-        <button className="btn btn-success">추가</button>
+        <button className="Add btn btn-success">추가</button>
       </div>
     
     </div>

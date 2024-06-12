@@ -5,13 +5,18 @@
   flex-direction: column;
   gap: 20px;
 
+  padding: 20px;
+  margin-top: 10px;
+
 }
 
 
 .TodoList .list_wrapper .TodoItem{
 
   display: flex;
-  gap: 20px;
+  gap: 10px;
+}
 
-
+.TodoItem .title_col {
+  flex: 1;
 }

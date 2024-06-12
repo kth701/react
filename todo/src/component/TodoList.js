@@ -13,11 +13,7 @@ const TodoList = () => {
       <div className="list_wrapper">
           <TodoItem />
           <TodoItem />
-          <TodoItem />
-          <TodoItem />
-          <TodoItem />
-          <TodoItem />
-          <TodoItem />
+
       </div>
     </div>
   );

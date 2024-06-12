@@ -15,7 +15,7 @@ const TodoItem =  () => {
         {new Date().toLocaleDateString()}
       </div>
       <div className="btn_col">
-        <button className="btn btn-danger btn-sm">삭제</button>
+        <button className="btn btn-outline-danger btn-sm">삭제</button>
       </div>
     </div>
   );
