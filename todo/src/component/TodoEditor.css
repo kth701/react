@@ -1,0 +1,13 @@
+
+.TodoEditor .edit_wrapper {
+  width: 100%;
+  margin-top: 25px;
+
+  display: flex; /* row : 수평 방향 */
+  gap: 10px;
+}
+
+.TodoEditor input:focus {
+  outline:none !important;
+  box-shadow:none !important;
+}

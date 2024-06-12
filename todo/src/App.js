@@ -1,6 +1,8 @@
 
 import './App.css';
 import Header from './component/Header.js';
+import TodoEditor from './component/TodoEditor.js';
+import TodoList from './component/TodoList.js';
 
 function App() {
   return (
@@ -8,9 +10,8 @@ function App() {
       <div className="contents">
 
         <Header />
-        
-        <div className="border">Todo Editor</div>
-        <div className="border">Todo List</div>
+        <TodoEditor />
+        <TodoList />
       </div>  
     </div>  
   );

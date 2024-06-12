@@ -1,0 +1,17 @@
+.TodoList .list_wrapper {
+  /* TodoItem 행간격 조절 */
+  display: flex;
+
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+
+.TodoList .list_wrapper .TodoItem{
+
+  display: flex;
+  gap: 20px;
+
+
+}
