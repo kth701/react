@@ -11,13 +11,13 @@ import TodoList from './component/TodoList.js';
 const mockTodo = [
   { 
     id:0, 
-    idDone: false, 
+    isDone: false, 
     content: "React 공부하기", 
     createdDate: new Date().getTime(),
   },
   { 
     id:1, 
-    idDone: false, 
+    isDone: false, 
     content: "Java 공부하기", 
     createdDate: new Date().getTime(),
   },
@@ -54,8 +54,8 @@ function App() {
       <div className="contents">
 
         <Header />
-        <TodoEditor />
-        <TodoList />
+        <TodoEditor onCreate={onCreate} />
+        <TodoList todo={todo} />
       </div>  
     </div>  
   );
