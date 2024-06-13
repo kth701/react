@@ -8,6 +8,7 @@ const TodoEditor = () => {
 
       <div className="edit_wrapper">
         <input className="Edit form-control border-success"
+                type="search"
                 placeholder="새로운 Todo...." />
         <button className="Add btn btn-success">추가</button>
       </div>
