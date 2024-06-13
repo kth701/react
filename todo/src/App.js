@@ -44,6 +44,18 @@ function App() {
 
   }
 
+  const onUpdate = (targetId) => {
+    setTodo(
+      todo.map( (it) => it.id === targetId ? {...it, isDone: !it.isDone}  : it)
+    );
+  }
+
+  const onDelete = (targetId) => {
+    setTodo(
+      todo.filter( (it) => it.id !== targetId)
+    );
+  }
+
 
 
 
@@ -55,7 +67,7 @@ function App() {
 
         <Header />
         <TodoEditor onCreate={onCreate} />
-        <TodoList todo={todo} />
+        <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
       </div>  
     </div>  
   );

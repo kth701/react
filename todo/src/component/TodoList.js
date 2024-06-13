@@ -2,7 +2,7 @@ import './TodoList.css'
 import TodoItem from './TodoItem.js'
 import { useState } from "react";
 
-const TodoList = ( {todo}) => {
+const TodoList = ( {todo, onUpdate, onDelete}) => {
 
   const [search, setSearch] = useState("");
   const onChangeSearch = (e) => {
@@ -33,7 +33,12 @@ const TodoList = ( {todo}) => {
           {/* todo 할일 아이템 전체 list */}
           {/* {todo.map( (it) => <TodoItem key={it.id} {...it} />)} */}
           {getSearchResult().map( (it) => ( 
-                      <TodoItem key={it.id} {...it} />
+                      <TodoItem 
+                          key={it.id} 
+                          {...it} 
+                          onUpdate={onUpdate}
+                          onDelete={onDelete}
+                          />
                       ))}
 
       </div>
