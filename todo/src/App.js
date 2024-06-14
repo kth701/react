@@ -6,6 +6,8 @@ import Header from './component/Header.js';
 import TodoEditor from './component/TodoEditor.js';
 import TodoList from './component/TodoList.js';
 
+import TestReducerComp from './component/TestReducerComp.js';
+
 
 // 목데이터 설정
 const mockTodo = [
@@ -64,6 +66,9 @@ function App() {
   return (
     <div className="container">
       <div className="contents">
+        <div>
+          <TestReducerComp />
+        </div>
 
         <Header />
         <TodoEditor onCreate={onCreate} />
