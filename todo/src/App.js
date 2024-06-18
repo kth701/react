@@ -1,6 +1,6 @@
 
 import './App.css';
-import { useState, useRef } from "react";
+import { useState, useRef , useReducer} from "react";
 
 import Header from './component/Header.js';
 import TodoEditor from './component/TodoEditor.js';
@@ -25,14 +25,32 @@ const mockTodo = [
   },
 ];
 
+// State관리 값의 변수를 줄 함수를 외부 함수로 정의
+function reducer(state, action){
+  switch (action.type) {
+    case "CREATE":
+      return [action.newItem, ...state]
+    case "UPDATE":
+      return state.map( (it) =>  it.id === action.targetId ? {...it, isDone: !it.isDone}  : it);
+    case "DELETE":
+      return state.filter( (it) => it.id !== action.targetId)
+    default:
+      break;
+  }
+
+}
+
 
 function App() {
+  
   // 변수(상태)
-  const [todo, setTodo] = useState(mockTodo);
+  const [todo, dispatch] = useReducer(reducer, mockTodo)
+  //const [todo, setTodo] = useState(mockTodo);
   const idRef = useRef(3); //변수 역할
 
   // 함수(기능)
   const onCreate = (content) => {
+    /*
     // 새 할 일 아이템 객체
     const newItem = {
       id: idRef.current,
@@ -43,32 +61,54 @@ function App() {
     //새롭게 추가된 아이템은 항상 배열의 0번 요소
     setTodo([newItem, ...todo ])
     idRef.current += 1;
+    */
+
+    dispatch({
+      type:"CREATE",
+      newItem: {
+        id: idRef.current, // 변수 역할
+        content,
+        isDone: false,
+        createdDate: new Date().getTime()
+      }
+    }); 
+    idRef.current += 1;
+    
 
   }
 
   const onUpdate = (targetId) => {
+    /*
     setTodo(
       todo.map( (it) => it.id === targetId ? {...it, isDone: !it.isDone}  : it)
     );
+    */
+
+    dispatch({
+      type: "UPDATE",
+      targetId
+    });
   }
 
   const onDelete = (targetId) => {
+    /*
     setTodo(
       todo.filter( (it) => it.id !== targetId)
     );
+    */
+   dispatch({
+    type:"DELETE",
+    targetId,
+   });
   }
-
-
-
-
 
 
   return (
     <div className="container">
       <div className="contents">
-        <div>
+        {/* <div>
           <TestReducerComp />
-        </div>
+        </div> */}
 
         <Header />
         <TodoEditor onCreate={onCreate} />
