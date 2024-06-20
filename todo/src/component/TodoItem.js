@@ -1,7 +1,10 @@
 import './TodoItem.css';
+import React from 'react';
 
 
 const TodoItem =  ( {id, content, isDone, createdDate, onUpdate, onDelete}) => {
+  
+  console.log(`TodoItem 컴포넌트: ${id} - 업데이트`);
 
   const onChangeCheckbox  = () => { onUpdate(id) }
   const onClickDelete     = () => { onDelete(id) }
@@ -28,4 +31,4 @@ const TodoItem =  ( {id, content, isDone, createdDate, onUpdate, onDelete}) => {
   );
 }
 
-export default TodoItem;
+export default  React.memo(TodoItem);

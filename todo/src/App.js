@@ -1,6 +1,7 @@
 
 import './App.css';
-import { useState, useRef , useReducer} from "react";
+import { useCallback, useState, useRef , useReducer} from "react";
+import React from 'react';
 
 import Header from './component/Header.js';
 import TodoEditor from './component/TodoEditor.js';
@@ -25,6 +26,10 @@ const mockTodo = [
   },
 ];
 
+const MyContext = React.createContext(defaultValue);
+
+
+
 // State관리 값의 변수를 줄 함수를 외부 함수로 정의
 function reducer(state, action){
   switch (action.type) {
@@ -46,10 +51,10 @@ function App() {
   // 변수(상태)
   const [todo, dispatch] = useReducer(reducer, mockTodo)
   //const [todo, setTodo] = useState(mockTodo);
-  const idRef = useRef(3); //변수 역할
+  const idRef = useRef(2); //변수 역할
 
-  // 함수(기능)
-  const onCreate = (content) => {
+  // 함수(기능): useReducer을 이용할 경우 함수형 업데이트 기능을 사용하지 않아된다.
+  const onCreate =  (content) => {
     /*
     // 새 할 일 아이템 객체
     const newItem = {
@@ -75,9 +80,10 @@ function App() {
     idRef.current += 1;
     
 
-  }
+  };
 
-  const onUpdate = (targetId) => {
+
+  const onUpdate = useCallback ( (targetId) => {
     /*
     setTodo(
       todo.map( (it) => it.id === targetId ? {...it, isDone: !it.isDone}  : it)
@@ -88,9 +94,9 @@ function App() {
       type: "UPDATE",
       targetId
     });
-  }
+  }, []);
 
-  const onDelete = (targetId) => {
+  const onDelete = useCallback( (targetId) => {
     /*
     setTodo(
       todo.filter( (it) => it.id !== targetId)
@@ -100,7 +106,7 @@ function App() {
     type:"DELETE",
     targetId,
    });
-  }
+  }, []);
 
 
   return (

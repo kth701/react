@@ -8,7 +8,7 @@ const TodoList = ( {todo, onUpdate, onDelete}) => {
   const onChangeSearch = (e) => {
     setSearch(e.target.value)
 
-    console.log("search: ",search)
+    //console.log("search: ",search)
   }
   // 검색 필터 함수
   const getSearchResult = () => {
@@ -59,6 +59,22 @@ const TodoList = ( {todo, onUpdate, onDelete}) => {
                type="Search" 
                placeholder="검색어를 입력하세요" />
       </div>
+      {/*
+       할일아이템추가->App컴포넌트 todo업데이트 -> App컴포넌트 리렌더 
+        ->TodoItem에 전달되는 Pros도 변경되어 리렌더 
+
+        불필요한 함수 재생성 방지 : useCallback
+        const memoizedFunc = useCallback(콜백함수, 의존성배열)
+        의존성 배열에 값이 변경되면 콜백함수 수행
+        의존성 배열을 빈배열로 전달 -> 콜백함수를 수행하지 않음
+
+        const onCreate = useCallback( 
+          // setState[newItem, ...state]=> 함수형 기능으로 표현
+          setState ( (state) => [newItem, ...state] )
+        , [])
+
+        */
+      }
       <div className="list_wrapper">
           {/* {todo.map( (it) =>  <div>{it.content}</div>)} */}
           

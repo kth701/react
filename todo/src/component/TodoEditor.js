@@ -9,7 +9,7 @@ const TodoEditor = ({onCreate}) => {
   const onChangeContent = (e) => {
     setContent(e.target.value)
     
-    console.log(content)
+    //console.log(content)
   }
   const onSubmit = () => {
     if (!content) {
