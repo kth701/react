@@ -1,13 +1,13 @@
 
 import './App.css';
-import { useCallback, useState, useRef , useReducer} from "react";
+import { useMemo, useCallback, useState, useRef , useReducer} from "react";
 import React from 'react';
 
 import Header from './component/Header.js';
 import TodoEditor from './component/TodoEditor.js';
 import TodoList from './component/TodoList.js';
 
-import TestReducerComp from './component/TestReducerComp.js';
+// import TestReducerComp from './component/TestReducerComp.js';
 
 // 목데이터 설정
 const mockTodo = [
@@ -111,6 +111,12 @@ function App() {
    });
   }, []);
 
+  // useMemo를 이용해 함수 onCreate, onUpdate, onDeletefmf anRdms rorcpfmf 
+  // App컴포넌트가 리렌더되어도 다시 생성하지 않도록 설정
+  const memoizedDispatches = useMemo( ()=> { 
+    return {onCreate, onUpdate, onDelete}
+  }, []);
+
   return (
     <div className="container">
       <div className="contents">
@@ -123,8 +129,9 @@ function App() {
         <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} /> */}
         {/* <TodoContext.Provider value={ {todo, onCreate, onUpdate, onDelete}} > */}
 
-        <TodoStateContext.Provider value={ {todo}} >
-        <TodoDispatchContext.Provider value={ {onCreate, onUpdate, onDelete}} >
+        <TodoStateContext.Provider value={ todo } >
+        {/* <TodoDispatchContext.Provider value={ {onCreate, onUpdate, onDelete}} > */}
+        <TodoDispatchContext.Provider value={ memoizedDispatches } >
 
           <TodoEditor  />
           <TodoList    />

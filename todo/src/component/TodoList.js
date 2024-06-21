@@ -2,13 +2,16 @@ import './TodoList.css'
 import TodoItem from './TodoItem.js'
 import { useContext, useState , useMemo} from "react";
 
-import { TodoContext } from "../App";
+// import { TodoContext } from "../App";
+import { TodoStateContext } from "../App";
 
 // const TodoList = ( {todo, onUpdate, onDelete}) => { // Props로 통해 값을 전달 받음
 
 const TodoList = () => {
   // ------------------------------------------------------------- //
-  const {todo}= useContext(TodoContext);
+  //const {todo}= useContext(TodoContext);
+  const todo = useContext(TodoStateContext);
+  //console.log("TodoList todo=",todo)
   // ------------------------------------------------------------- //
 
   const [search, setSearch] = useState("");
@@ -100,7 +103,7 @@ const TodoList = () => {
       </div>
     </div>
   );
-}
+};
 
 TodoList.defaultProps = {
   todo: [],
