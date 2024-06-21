@@ -6,9 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { getEnmotionImgById} from "./util";
 
 // 라우팅 할 페이지 가져오기
-import Home from "./pages/Home";
-import New  from "./pages/New";
-import Edit from "./pages/Edit";
+import Home from  "./pages/Home";
+import New  from  "./pages/New";
+import Edit from  "./pages/Edit";
 import Diary from "./pages/Diary";  
 
 function App() {
