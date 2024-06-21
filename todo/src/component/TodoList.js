@@ -1,8 +1,15 @@
 import './TodoList.css'
 import TodoItem from './TodoItem.js'
-import { useState , useMemo} from "react";
+import { useContext, useState , useMemo} from "react";
 
-const TodoList = ( {todo, onUpdate, onDelete}) => {
+import { TodoContext } from "../App";
+
+// const TodoList = ( {todo, onUpdate, onDelete}) => { // Props로 통해 값을 전달 받음
+
+const TodoList = () => {
+  // ------------------------------------------------------------- //
+  const {todo}= useContext(TodoContext);
+  // ------------------------------------------------------------- //
 
   const [search, setSearch] = useState("");
   const onChangeSearch = (e) => {
@@ -84,14 +91,19 @@ const TodoList = ( {todo, onUpdate, onDelete}) => {
                       <TodoItem 
                           key={it.id} 
                           {...it} 
-                          onUpdate={onUpdate}
-                          onDelete={onDelete}
+                          // Props로 통해 값을 전달하는 방식 생략
+                          // onUpdate={onUpdate}
+                          // onDelete={onDelete}
                           />
                       ))}
 
       </div>
     </div>
   );
+}
+
+TodoList.defaultProps = {
+  todo: [],
 }
 
 export default TodoList;

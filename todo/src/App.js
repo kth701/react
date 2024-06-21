@@ -9,7 +9,6 @@ import TodoList from './component/TodoList.js';
 
 import TestReducerComp from './component/TestReducerComp.js';
 
-
 // 목데이터 설정
 const mockTodo = [
   { 
@@ -25,8 +24,6 @@ const mockTodo = [
     createdDate: new Date().getTime(),
   },
 ];
-
-const MyContext = React.createContext(defaultValue);
 
 
 
@@ -44,6 +41,12 @@ function reducer(state, action){
   }
 
 }
+
+
+// Context객체 생성
+// export const TodoContext = React.createContext();
+export const TodoStateContext    = React.createContext();
+export const TodoDispatchContext = React.createContext();
 
 
 function App() {
@@ -108,7 +111,6 @@ function App() {
    });
   }, []);
 
-
   return (
     <div className="container">
       <div className="contents">
@@ -117,8 +119,18 @@ function App() {
         </div> */}
 
         <Header />
-        <TodoEditor onCreate={onCreate} />
-        <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
+        {/* <TodoEditor onCreate={onCreate} />
+        <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} /> */}
+        {/* <TodoContext.Provider value={ {todo, onCreate, onUpdate, onDelete}} > */}
+
+        <TodoStateContext.Provider value={ {todo}} >
+        <TodoDispatchContext.Provider value={ {onCreate, onUpdate, onDelete}} >
+
+          <TodoEditor  />
+          <TodoList    />
+
+        </TodoDispatchContext.Provider>
+        </TodoStateContext.Provider>
       </div>  
     </div>  
   );
@@ -151,4 +163,40 @@ Delete : 삭제
 
 useMemo 객체
 
+-------
+Context 객체: 컴포넌트 트리전역에 데이터를 공할 수 있어 Prop Drilling문제를 해결
+------
+
+
+App() -> Header(), Body()
+                   Body() -> List1(), List2(), List3()
+                             List1() -> Cal(), Result()
+import React from 'react';
+const MyContext = React.createContext();
+
+App(){
+  const data = '1000'
+  <Header />
+  <MyContext.Provider value={data} >
+    <Body > // Props과정 생략 
+  </MyContext>
+}
+
+Body( ) { // Props과정 생략 -> useContext()반환값으로 전달 받음
+  const data = useContext(MyContext);
+}
+
+Result() {
+ const data = useContext(MyContext);
+}
+
+// 문제가 발생
+React.memo가 리팩토링 이후 정상적으로 동작하지 않음
+ : dispatch관련 함수들이 하나의 객체로 묶여 동일한 Context에 Prorops로 전달되기 때문에
+
+TodoStateContext: 
+  todo가 업데이트되면 영향을 받는 컴포턴트을 위한 Context
+
+TodoDispatchContext: 
+  dispatch함수(onCreate, onUpdate, onDelete)가 업데이트되면 영향을 받는 컴포턴트을 위한 Context
 */
