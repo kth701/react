@@ -2,7 +2,7 @@ import "./Header.css";
 
 const Header = ({title, leftChild, rightChild})=> {
   return (
-    <div className="d-flex align-items-center Header">
+    <div className="d-flex align-items-center Header" >
       <div className="header_left">{leftChild}</div>
       <div className="header_center">{title}</div>
       <div className="header_right">{rightChild}</div>

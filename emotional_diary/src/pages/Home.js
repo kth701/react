@@ -16,7 +16,7 @@ const Home = () => {
 //     alert("작성완료 버튼 클릭")
 //   }
   return (
-      <div>
+      <div >
         
         <Header 
             title={"Home"}

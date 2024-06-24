@@ -16,9 +16,9 @@ import Diary from "./pages/Diary";
 function App() {
 
   return (
-    <div className="App myfont ">
-      <div className="container border border-4 my-3 p-3">
-        <div className="contents ">
+    <div className="App container d-flex justify-content-center">
+      <div className="w-75 border  border-4 my-3 p-4 myfont ">
+
           {/* 이미지 리소스
           <div>
             <img src={emotion5} />
@@ -33,7 +33,7 @@ function App() {
             <Route path="/diary/:id" element={<Diary />} />
             <Route path="/edit" element={<Edit />} />
           </Routes>
-        </div>
+
 
       </div> 
     </div>

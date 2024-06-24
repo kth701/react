@@ -1,8 +1,9 @@
 import {useState} from "react";
-import {getFormattedDate} from "../util";
+import {emotionList, getFormattedDate} from "../util";
 import Button from "./Button";
 // 브라우저의 뒤로가기 - 이전 페이지 이동
 import {useNavigate} from "react-router-dom";
+import EmotionItem from "./EmotionItem";
 
 import "./Editor.css";
 
@@ -43,6 +44,13 @@ const Editor = ({initData, onSubmit}) => {
     onSubmit(state)
   }
 
+   const handleChangeEmotion = (emotionId)=> {
+    setState({
+      ...state,
+      emotionId
+    })
+   }
+
 
   return (
     <div className="Editor">
@@ -57,15 +65,30 @@ const Editor = ({initData, onSubmit}) => {
       </div>
       <div>
         <h4>오늘의 감정</h4>
+        <div className="input_wrapper emotion_list_wrapper">
+          {
+            emotionList
+                .map( (it) => (
+                      // (<img key={it.id} alt={`emotion${it.id}`} src={it.img}/>)
+                      <EmotionItem 
+                            key={it.id} 
+                            {...it} // it.id, it.img, it.name 전달
+                            onClick={handleChangeEmotion} 
+                            isSelected={state.emotionId === it.id} />
+                    )
+                  )
+          }
+
+        </div>
+      </div>
+      <div>
+        <h4>오늘의 일기</h4>
         <div className="input_wrapper">
           <textarea 
               placeholder="오늘은 어땠나요?"
               value={state.content} 
               onChange={handleChangeContent}/>
         </div>
-      </div>
-      <div>
-        <h4>오늘의 일기</h4>
       </div>
       <div className="d-flex justify-content-between align-items-center ">
         <Button text={"취소하기"} type={"danger"} onClick={handleOnGoBack}/>

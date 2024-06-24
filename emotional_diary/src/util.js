@@ -22,6 +22,14 @@ export const getEnmotionImgById = (emotionId) => {
 
 }
 
+export const emotionList = [
+  {id:1, name:"완전 좋음",  img: getEnmotionImgById(1)},
+  {id:2, name:"좋음",       img: getEnmotionImgById(2)},
+  {id:3, name:"그럭저럭",   img: getEnmotionImgById(3)},
+  {id:4, name:"나쁨",       img: getEnmotionImgById(4)},
+  {id:5, name:"끔찍함",     img: getEnmotionImgById(5)},
+];
+
 
  // 처음 렌더링할 때 오늘날짜를 yyyy-mm-dd형식으로 출력
  export const getFormattedDate = (targetDate) => {
@@ -38,7 +46,7 @@ export const getEnmotionImgById = (emotionId) => {
     date = `0${date}`
   }
   console.log(year, month, date)
-  
+
   return `${year}-${month}-${date}`;
 
  }  
