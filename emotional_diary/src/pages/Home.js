@@ -45,7 +45,7 @@ const Home = () => {
             //     onClick={ () => { alert("primary!!!!"); } } />   
         />                     
 
-       <Editor />
+       <Editor onSubmit={ alert("작성완료 버튼 클릭")} />
       </div>
     );
 }
