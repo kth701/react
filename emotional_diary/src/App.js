@@ -3,7 +3,9 @@ import {Routes, Route} from "react-router-dom";
 
 // import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { getEnmotionImgById} from "./util";
+// 리소스 임포트 방식
+// import { getEnmotionImgById} from "./util";
+// import emotion5 from "./img/emotion5.png";
 
 // 라우팅 할 페이지 가져오기
 import Home from  "./pages/Home";
@@ -15,8 +17,14 @@ function App() {
 
   return (
     <div className="App myfont text-center">
-      <div className="container">
-
+      <div className="container border border-4 my-3 p-3">
+        {/* 이미지 리소스
+        <div>
+          <img src={emotion5} />
+          <img src={getEnmotionImgById(1)} />
+          <img src={getEnmotionImgById(2)} />
+        </div> */}
+        
         <Routes >
           <Route path="/"     element={<Home />} />
           <Route path="/new"  element={<New />} />

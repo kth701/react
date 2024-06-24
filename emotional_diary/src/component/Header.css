@@ -1,0 +1,15 @@
+.Header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.header_left {
+   flex: 1;
+}
+.header_center {
+  flex: 5;
+  font-size: 24px;
+}
+.header_right {
+  flex: 1;
+}
