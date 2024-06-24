@@ -1,0 +1,26 @@
+
+.Editor {
+  padding-top : 20px;
+  padding-bottom: 20px;
+}
+
+.Editor h4 {
+   font-size: 18px;
+}
+
+.Editor input, textarea {
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+  padding: 20px;
+  forn-size: 20px;
+  font-family: "Nanum Pen Script";
+  outline: none;
+
+  margin-bottom : 20px;
+}
+
+.Editor textarea {
+  width: 100%;
+  min-height : 200px;
+}

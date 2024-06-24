@@ -16,22 +16,24 @@ import Diary from "./pages/Diary";
 function App() {
 
   return (
-    <div className="App myfont text-center">
+    <div className="App myfont ">
       <div className="container border border-4 my-3 p-3">
-        {/* 이미지 리소스
-        <div>
-          <img src={emotion5} />
-          <img src={getEnmotionImgById(1)} />
-          <img src={getEnmotionImgById(2)} />
-        </div> */}
-        
-        <Routes >
-          <Route path="/"     element={<Home />} />
-          <Route path="/new"  element={<New />} />
-          {/* 동적 경로 설정 */}
-          <Route path="/diary/:id" element={<Diary />} />
-          <Route path="/edit" element={<Edit />} />
-        </Routes>
+        <div className="contents ">
+          {/* 이미지 리소스
+          <div>
+            <img src={emotion5} />
+            <img src={getEnmotionImgById(1)} />
+            <img src={getEnmotionImgById(2)} />
+          </div> */}
+          
+          <Routes >
+            <Route path="/"     element={<Home />} />
+            <Route path="/new"  element={<New />} />
+            {/* 동적 경로 설정 */}
+            <Route path="/diary/:id" element={<Diary />} />
+            <Route path="/edit" element={<Edit />} />
+          </Routes>
+        </div>
 
       </div> 
     </div>

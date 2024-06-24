@@ -1,8 +1,15 @@
 import {useState} from "react";
 import {getFormattedDate} from "../util";
 import Button from "./Button";
+// 브라우저의 뒤로가기 - 이전 페이지 이동
+import {useNavigate} from "react-router-dom";
+
+import "./Editor.css";
+
 
 const Editor = ({initData, onSubmit}) => {
+  const navigate = useNavigate();
+
   // 변수(값이 변하는)
   const [state, setState] = useState({
     date: getFormattedDate(new Date()),
@@ -25,6 +32,11 @@ const Editor = ({initData, onSubmit}) => {
       ...state,
       content: e.target.value
     })
+  }
+
+  // 뒤로 가기(이전 페이지 이동) 함수
+  const handleOnGoBack = () => {
+    navigate(-1)
   }
 
   const handleSubmit = () => {
@@ -55,8 +67,8 @@ const Editor = ({initData, onSubmit}) => {
       <div>
         <h4>오늘의 일기</h4>
       </div>
-      <div className="d-flex justify-content-center align-items-center ">
-        <Button text={"취소하기"} type={"danger"} />
+      <div className="d-flex justify-content-between align-items-center ">
+        <Button text={"취소하기"} type={"danger"} onClick={handleOnGoBack}/>
         <Button text={"작성완료"} type={"success"} onClick={handleSubmit}/>
       </div>
 

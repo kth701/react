@@ -12,7 +12,9 @@ const Home = () => {
   // console.log("searchParams.get():", searchParams.get("name"))
   // console.log("searchParams.get():", searchParams.get("age"))
   // console.log("searchParams.get():", searchParams.get("addr"))
-
+//   const  onSubmitSend = () => {
+//     alert("작성완료 버튼 클릭")
+//   }
   return (
       <div>
         
@@ -45,7 +47,11 @@ const Home = () => {
             //     onClick={ () => { alert("primary!!!!"); } } />   
         />                     
 
-       <Editor onSubmit={ alert("작성완료 버튼 클릭")} />
+       <Editor 
+                onSubmit={ 
+                            () => { alert("작성완료 버튼 클릭")} 
+                            // onSubmitSend
+                        }/>
       </div>
     );
 }
