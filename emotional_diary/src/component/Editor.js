@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {emotionList, getFormattedDate} from "../util";
 import Button from "./Button";
 // 브라우저의 뒤로가기 - 이전 페이지 이동
@@ -17,6 +17,17 @@ const Editor = ({initData, onSubmit}) => {
     emotionId: 3,
     content:""
   })
+
+  // 의존성배열값이 변경될 때마다 콜백함수 수행
+  // new Date(parseInt(initData.date) : 타임스템프형식을 Date객체로 변환
+  useEffect( ()=>{
+    if (initData) {
+      setState({
+        ...initData,
+        date: getFormattedDate(new Date(parseInt(initData.date)))
+      })
+    }
+  }, [initData]);
 
   // 함수(기능수행)
   const handleChangeDate = (e) => {
