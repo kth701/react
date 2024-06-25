@@ -1,0 +1,30 @@
+
+.DiaryList {}
+
+.DiaryList .menu_wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.DiaryList .left {
+  flex:1;
+
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+
+  pading-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+.DiaryList .right {
+  flex:9;
+
+  font-size: 20px;
+}
+.DiaryList button {
+  width: 100%;
+}

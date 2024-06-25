@@ -38,6 +38,7 @@ import Diary from "./pages/Diary";
 
  // Context객체 활용: 특정범위내에서 전역변수(함수) 역할 => Prop객체 사용하지 않음
  export const DiaryStateContext = React.createContext();
+ export const DiaryDispatchContext = React.createContext();
 
 // 일기 데이터 관리하기 위한 State 생성: 외부함수을 활용하여 State 데이터 관리
 function reducer(state, action){// action.type,  action.data
@@ -132,6 +133,13 @@ function App() {
 
     return (
       <DiaryStateContext.Provider value={data} >
+      <DiaryDispatchContext.Provider value={ 
+        {
+          onCreate, 
+          onUpdate,
+          onDelete
+        }}>
+
       <div className="App container d-flex justify-content-center">
         <div className="w-75 border  border-4 my-3 p-4 myfont ">
             
@@ -147,12 +155,14 @@ function App() {
               <Route path="/new"  element={<New />} />
               {/* 동적 경로 설정 */}
               <Route path="/diary/:id" element={<Diary />} />
-              <Route path="/edit" element={<Edit />} />
+              <Route path="/edit/:id" element={<Edit />} />
             </Routes>
 
 
         </div> 
       </div>
+
+      </DiaryDispatchContext.Provider>
       </DiaryStateContext.Provider>
     );
   }// end if
