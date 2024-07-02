@@ -19,7 +19,7 @@ import Diary from "./pages/Diary";
   {
     id: "mock1",
     date: new Date().getTime() - 1,
-    content: "mock1",
+    content: "Ex ullamco aliquip deserunt est irure. Consequat fugiat ea esse ex. Exercitation amet sit esse nulla eiusmod exercitation id ad. Qui commodo exercitation veniam nisi est eiusmod. Ex mollit consectetur amet amet anim labore occaecat. Quis est non duis eu magna consequat elit sit consequat.",
     emotionId: 1,
   },
   {

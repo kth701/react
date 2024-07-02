@@ -1,23 +1,39 @@
-import Button from "../component/Button"
-import Header from "../component/Header"
+import { useNavigate } from "react-router-dom";
+import Button from "../component/Button";
+import Header from "../component/Header";
+import Editor from "../component/Editor";
+
+import { useContext} from "react";
+import { DiaryDispatchContext} from "../App"
+
+
 
 const  New = () => {
+  const { onCreate } = useContext(DiaryDispatchContext)
+
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  }
+
+  const onSumit = (data) => {
+    const { date, content, emotionId } = data;
+    // 데이터 추가하는 함수
+    onCreate(date, content, emotionId);
+    navigate("/",{replace: true})
+  };
   return <div>
     <Header 
-            title={"New"}
+            title={"새 일기 쓰기"}
             leftChild={
                 <Button 
-                text={"뒤로가기"}
-                onClick={ () => { alert("뒤로가기"); } } />
+                text={"<뒤로가기"}
+                onClick={ goBack } />
             }
-            rightChild={
-                <Button 
-                text={"삭제하기"}
-                type={"danger"}
-                onClick={ () => { alert("삭제하기!!!!"); } } />
-            }
-              
-        />                     
+
+        />     
+
+        <Editor onSumbit={onSumit} />           
 
   </div>
 }

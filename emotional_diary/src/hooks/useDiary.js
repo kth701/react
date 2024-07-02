@@ -10,17 +10,16 @@ const useDiary = (id) => {
 
   useEffect( ()=>{
     const matchDiary = data.find( (it)=> String(it.id) == String(id) )
-    if (matchDiary){
+    if (matchDiary){// 찾고자 하는 데이터가 있으면 State객체 보관
       setDiary(matchDiary)
     } else {
       alert("일기가 존재하지 않습니다.");
-      navigate("/", {replace:true})
+      navigate("/", {replace:true}) // 두번쩨 인자 브라우저의 되도라가기 비활성
     }
-  }, [id, data]);
+  }, [id, data]); // id, data변경되면 콜백함수 수행
 
   return diary;
 }
-
 export default useDiary;
 /*
 커스텀 훅: 개발작가 직접 만들어 사용
