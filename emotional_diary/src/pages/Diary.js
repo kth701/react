@@ -21,8 +21,11 @@ const Diary = () => {
   }
   // 수정작업처리한 컴포넌트 연결
   const goEdit = () =>{
+    console.log('수정, id:',id)
     navigate(`/edit/${id}`)
   }
+
+
 
   if(!data){ // 데이터가 존재하지 않으면
     return <div>일기를 불오고 있습니다...</div>

@@ -16,7 +16,7 @@ const  New = () => {
     navigate(-1);
   }
 
-  const onSumit = (data) => {
+  const onSubmit = (data) => {
     const { date, content, emotionId } = data;
     // 데이터 추가하는 함수
     onCreate(date, content, emotionId);
@@ -33,7 +33,7 @@ const  New = () => {
 
         />     
 
-        <Editor onSumbit={onSumit} />           
+        <Editor onSubmit={onSubmit} />           
 
   </div>
 }

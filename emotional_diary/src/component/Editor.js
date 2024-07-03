@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useCallback} from "react";
 import {emotionList, getFormattedDate} from "../util";
 import Button from "./Button";
 // 브라우저의 뒤로가기 - 이전 페이지 이동
@@ -8,7 +8,7 @@ import EmotionItem from "./EmotionItem";
 import "./Editor.css";
 
 
-const Editor = ({initData, onSubmit}) => {
+const Editor = ({ initData, onSubmit }) => {
   const navigate = useNavigate();
 
   // 변수(값이 변하는)
@@ -52,15 +52,26 @@ const Editor = ({initData, onSubmit}) => {
   }
 
   const handleSubmit = () => {
+    console.log("==> 작성완료")
+    // console.log("==>"+onSubmit)
     onSubmit(state)
   }
 
-   const handleChangeEmotion = (emotionId)=> {
+  // 최적화 미적용
+  //  const handleChangeEmotion = (emotionId)=> {
+  //   setState({
+  //     ...state,
+  //     emotionId
+  //   })
+  //  }
+
+   // 최적화 적용 : useCallback()
+   const handleChangeEmotion = useCallback(  (emotionId)=> {
     setState({
       ...state,
       emotionId
     })
-   }
+   }, [] )
 
 
   return (
@@ -102,8 +113,8 @@ const Editor = ({initData, onSubmit}) => {
         </div>
       </div>
       <div className="d-flex justify-content-between align-items-center ">
-        <Button text={"취소하기"} type={"danger"} onClick={handleOnGoBack}/>
-        <Button text={"작성완료"} type={"success"} onClick={handleSubmit}/>
+        <Button text={"취소하기"} type={"danger"}   onClick={handleOnGoBack}/>
+        <Button text={"작성완료"} type={"success"}  onClick={handleSubmit}/>
       </div>
 
     </div>

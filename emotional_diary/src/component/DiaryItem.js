@@ -1,9 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import React from "react";
+
 import { getEnmotionImgById} from "../util";
 import "./DiaryItem.css";
 import Button from "./Button"
 
 const DiaryItem = ({id, emotionId, content, date}) => {
+
+  console.log("DiaryItem id:"+id)
+
   const navigate = useNavigate();
   
   const goDetail = () => {
@@ -40,4 +45,6 @@ const DiaryItem = ({id, emotionId, content, date}) => {
   );
 }
 
-export default DiaryItem
+// export default DiaryItem;
+// 부모컴포턴트가 Prop가 없으면 렌더하지 않음
+export default React.memo(  DiaryItem );

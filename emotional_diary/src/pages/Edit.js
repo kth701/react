@@ -10,11 +10,12 @@ import Header from "../component/Header";
 
 
 
-const Edit = ({initData, onSubmit}) => {
+const Edit = () => {
   const { onDelete, onUpdate} = useContext(DiaryDispatchContext);
-  const {id} = useParams;// url매개변수에서 일기장 id
-  const data = useDiary(id);// 일장 유무 검색
+  const {id } = useParams();// url매개변수에서 일기장 id
+  const data = useDiary(id);// 일기장 유무 검색
   const navigate = useNavigate();
+  console.log("Edit id값: ",id)
 
   const goBack = () => { navigate(-1)}
   const onClickDelete = () => {
@@ -23,7 +24,7 @@ const Edit = ({initData, onSubmit}) => {
        navigate("/", {repace: true})
     }
   }
-  const onSumbit = (data)=>{
+  const onSubmit = (data)=>{
     if (window.confirm("일기를 정말 수정할까요?")){
       const { date, content, emotionId} = data;
 

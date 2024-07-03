@@ -91,7 +91,7 @@ function App() {
   }, [])
 
   // 생성
-  const onCreate = (date, content, emotionId) =>{
+  const onCreate =(date, content, emotionId) =>{
     dispatch ({
       type:"CREATE",
       data:{ 
@@ -157,8 +157,6 @@ function App() {
               <Route path="/diary/:id" element={<Diary />} />
               <Route path="/edit/:id" element={<Edit />} />
             </Routes>
-
-
         </div> 
       </div>
 
